@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <form id="feedback-form" action="success.html" method="POST" onsubmit="return validateForm()">
+        <h1>Feedback Form</h1>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" minlength="5" maxlength="20" placeholder="Your name">
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" minlength="5" maxlength="30" placeholder="Your email" required>
+        <p id="email-error" class="error" hidden>Email is required</p>
+        <br>
+
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" minlength="5" maxlength="200" placeholder="Your comment" required></textarea>
+        <p id="comment-error" class="error" hidden>Comment is required</p>
+        <br>
+
+        <div id="captcha-block">
+            <img id="captcha-image" src="captcha-image.png" alt="Captcha" onclick="refreshCaptcha()" width="200px">
+            <br>
+
+            <label for="captcha">Captcha:</label>
+            <br>
+            <input type="text" id="captcha" name="captcha" placeholder="Enter captcha" required>
+            <br>
+
+            <button type="button" id="refresh-captcha" onclick="refreshCaptcha()">Refresh Captcha</button>
+            <br>
+        </div>
+        <p id="captcha-error" class="error" hidden>Valid captcha is required</p>
+        <br>
+        <button type="submit" id="submit-button">Submit</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+
+</html>
